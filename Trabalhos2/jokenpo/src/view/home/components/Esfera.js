@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Image, StyleSheet } from "react-native";
 
-export default function Esfera({imagem, bg}) {
+export default function Esfera({imagem, bg, ativado}) {
      return (<>
           <View style={[estilos.esfera, {backgroundColor: bg}]}>
                <Image source={imagem} style={estilos.imagem}/>

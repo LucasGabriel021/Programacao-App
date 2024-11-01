@@ -10,12 +10,23 @@ import papel from "../../../assets/img/papel.png";
 import tesoura from "../../../assets/img/tesoura.png";
 
 export default function Home() {
-     const [imagemMaquina, setImagem] = useState(placeholder);
-
-     const jogadas = ["pedra", "papel", "tesoura"];
+     const [imagemMaquina, setImagemMaquina] = useState(placeholder);
 
      const jogar = () => {
-          
+          let index = Math.floor(Math.random() * 3) + 1
+          console.log(index);
+
+          switch(index) {
+               case 1: 
+                    setImagemMaquina(pedra);
+                    break;
+               case 2:
+                    setImagemMaquina(papel);
+                    break;
+               case 3: 
+                    setImagemMaquina(tesoura);
+                    break;
+          }
      }
 
      return (<>
@@ -24,7 +35,7 @@ export default function Home() {
                <View>
                
                </View>
-               <Esfera imagem={imagemMaquina} bg={"#fff"}/>
+               <Esfera imagem={imagemMaquina} bg={"#A0A5C9"}/>
                <View style={{alignItems: "center", rowGap: 16, marginTop: 24}}>
                     <Text style={estilos.textEscolher}>Escolha uma opção abaixo</Text>
                     <View style={{flexDirection: "row", justifyContent: "center", columnGap: 16}}>
@@ -38,6 +49,14 @@ export default function Home() {
                               <Esfera imagem={tesoura} bg={"#A75CF4"}/>
                          </Pressable>
                     </View>
+               </View>
+               <View>
+                    <Pressable onPress={() => console.log("Reiniciar")}>
+                         <Text>Reiniciar</Text>
+                    </Pressable>
+                    <Pressable onPress={() => console.log("Jogar")}>
+                         <Text>Jogar</Text>
+                    </Pressable>
                </View>
           </SafeAreaView>
      </>)
